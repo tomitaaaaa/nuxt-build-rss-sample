@@ -38,7 +38,20 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    [
+      '~/modules/rssTojson',
+      {
+        rss: [
+          {
+            name: 'mag01',
+            url: 'https://note.com/tomtoma/m/m923ed96565c2/rss'
+          },
+          { name: 'mag02', url: 'https://note.com/narumi/m/m7bdaa6c5a46e/rss' }
+        ]
+      }
+    ]
+  ],
   /*
    ** Build configuration
    */
