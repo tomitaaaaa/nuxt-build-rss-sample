@@ -1,40 +1,44 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        nuxt-build-rss
-      </h1>
-      <h2 class="subtitle">
-        sample of build from rss
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <ul id="example-1">
+        <li v-for="(post, index) in posts" :key="index" class="card">
+          <div class="card__ttl">{{ post.title[0] }}</div>
+          <img
+            v-if="post['media:thumbnail']"
+            :src="post['media:thumbnail'][0]"
+          />
+          <img v-else src="~/assets/img/noimage.png" />
+
+          <div v-html="post.description[0]"></div>
+          <p>{{ post.pubDate[0] }}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  async asyncData({ app, error }) {
+    try {
+      const feed = await app.$axios.get('/_nuxt/articles/note_rss.json')
+      const posts = feed.data.find((d) => {
+        return d.name === 'mag01'
+      })
+      console.log(posts.posts[0].item)
+      return { posts: posts.posts[0].item }
+    } catch (err) {
+      error({
+        statusCode: err.response.status,
+        message: err.response.data.message
+      })
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -64,5 +68,18 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.card {
+  width: 500px;
+  margin-bottom: 30px;
+  line-height: 2;
+  &__ttl {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  img {
+    width: 100%;
+  }
 }
 </style>
