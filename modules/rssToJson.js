@@ -1,5 +1,6 @@
 import axios from 'axios'
 import x2j from 'xml2js'
+import express from 'express'
 
 module.exports = function rssToJson(moduleOptions) {
   this.nuxt.hook('build:before', async (builder) => {
@@ -55,5 +56,22 @@ module.exports = function rssToJson(moduleOptions) {
         }
       ]
     ]
+
+    // dev時はここで終了
+    if (process.env.NODE_ENV !== 'production') return
+
+    // generate時にexpress立ててhttpでjson取得できるようにする
+    this.requireModule(['@nuxtjs/axios'])
+    this.nuxt.hook('build:done', (generator) => {
+      console.log('**[generate]** opening server connection')
+      const app = express()
+      app.use(express.static(this.options.generate.dir))
+      const server = app.listen(process.env.PORT || 3000)
+
+      this.nuxt.hook('generate:done', () => {
+        console.log('**[generate]** closing server connection')
+        server.close()
+      })
+    })
   })
 }
