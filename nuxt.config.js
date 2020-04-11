@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/style.scss'],
+  css: ['@/assets/css/style.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -41,7 +41,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     [
-      '~/modules/rssTojson',
+      '@/modules/rssTojson',
       {
         rss: [
           {
