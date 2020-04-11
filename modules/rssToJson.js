@@ -13,7 +13,6 @@ module.exports = function rssToJson(moduleOptions) {
         })
       )
     } catch (err) {
-      console.log(err)
       return
     }
 
@@ -63,13 +62,11 @@ module.exports = function rssToJson(moduleOptions) {
     // generate時にexpress立ててhttpでjson取得できるようにする
     this.requireModule(['@nuxtjs/axios'])
     this.nuxt.hook('build:done', (generator) => {
-      console.log('**[generate]** opening server connection')
       const app = express()
       app.use(express.static(this.options.generate.dir))
       const server = app.listen(process.env.PORT || 3000)
 
       this.nuxt.hook('generate:done', () => {
-        console.log('**[generate]** closing server connection')
         server.close()
       })
     })

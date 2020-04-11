@@ -60,6 +60,11 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+
+    extend(config, ctx) {
+      const path = require('path')
+      config.resolve.alias['~'] = path.resolve(__dirname)
+      config.resolve.alias['@'] = path.resolve(__dirname)
+    }
   }
 }
