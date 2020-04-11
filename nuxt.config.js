@@ -1,3 +1,6 @@
+import path from 'path'
+const rootDir = path.resolve(__dirname)
+
 export default {
   mode: 'universal',
   /*
@@ -23,7 +26,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/style.scss'],
+  css: [`${rootDir}/assets/css/style.scss`],
   /*
    ** Plugins to load before mounting the App
    */
@@ -41,7 +44,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     [
-      '@/modules/rssTojson',
+      `${rootDir}/modules/rssTojson`,
       {
         rss: [
           {
@@ -61,10 +64,6 @@ export default {
      ** You can extend webpack config here
      */
 
-    extend(config, ctx) {
-      const path = require('path')
-      config.resolve.alias['~'] = path.resolve(__dirname)
-      config.resolve.alias['@'] = path.resolve(__dirname)
-    }
+    extend(config, ctx) {}
   }
 }
