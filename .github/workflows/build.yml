@@ -41,9 +41,9 @@ jobs:
       run: yarn install
 
     - name: test
-      - run: yarn lint
+      run: yarn lint
 
     - name: build
-      - run: yarn nuxt generate
+      run: yarn nuxt generate
       env:
         CI: true
