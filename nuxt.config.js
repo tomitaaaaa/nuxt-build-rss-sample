@@ -1,4 +1,5 @@
 import path from 'path'
+const rootDir = path.resolve(__dirname)
 
 export default {
   mode: 'universal',
@@ -25,7 +26,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/style.scss'],
+  css: [`${rootDir}/assets/css/style.scss`],
   /*
    ** Plugins to load before mounting the App
    */
@@ -43,7 +44,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     [
-      '~/modules/rssTojson',
+      `${rootDir}/modules/rssTojson.js`,
       {
         rss: [
           {
