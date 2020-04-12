@@ -1,5 +1,4 @@
 import path from 'path'
-const rootDir = path.resolve(__dirname)
 
 export default {
   mode: 'universal',
@@ -64,6 +63,9 @@ export default {
      ** You can extend webpack config here
      */
 
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.resolve.alias['~'] = path.resolve(__dirname)
+      config.resolve.alias['@'] = path.resolve(__dirname)
+    }
   }
 }
