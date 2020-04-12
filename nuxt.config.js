@@ -1,5 +1,4 @@
 import path from 'path'
-const rootDir = path.resolve(__dirname)
 
 export default {
   mode: 'universal',
