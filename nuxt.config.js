@@ -2,6 +2,9 @@ import path from 'path'
 
 export default {
   mode: 'universal',
+  router: {
+    base: process.env.NODE_ENV === 'dev' ? '/' : '/nuxt-build-rss-sample/'
+  },
   /*
    ** Headers of the page
    */
