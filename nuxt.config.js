@@ -1,5 +1,10 @@
+import path from 'path'
+
 export default {
   mode: 'universal',
+  router: {
+    base: process.env.NODE_ENV === 'dev' ? '/' : '/nuxt-build-rss-sample/'
+  },
   /*
    ** Headers of the page
    */
@@ -41,7 +46,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     [
-      '~/modules/rssTojson',
+      '~/modules/rssToJson',
       {
         rss: [
           {
@@ -60,6 +65,10 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+
+    extend(config, ctx) {
+      config.resolve.alias['~'] = path.resolve(__dirname)
+      config.resolve.alias['@'] = path.resolve(__dirname)
+    }
   }
 }
