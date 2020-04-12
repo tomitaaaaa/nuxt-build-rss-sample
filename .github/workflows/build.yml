@@ -5,9 +5,7 @@ name: build nuxt
 
 on:
   push:
-    branches: [ dev-github-action ]
-  pull_request:
-    branches: [ dev-github-action ]
+    branches: [ master ]
 
 jobs:
   build:
