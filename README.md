@@ -2,6 +2,11 @@
 
 > sample of build from rss
 
+[github pages](https://tomitaaaaa.github.io/nuxt-build-rss-sample/)
+
+nuxtのbuild時にRSSのデータを取ってきてjsonに変換して静的API化して利用。  
+RSSは[note](https://note.com/)のものを想定。
+
 ## Build Setup
 
 ```bash
