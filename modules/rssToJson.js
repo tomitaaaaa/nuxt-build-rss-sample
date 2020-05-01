@@ -55,20 +55,5 @@ module.exports = function rssToJson(moduleOptions) {
         }
       ]
     ]
-
-    // dev時はここで終了
-    if (process.env.NODE_ENV !== 'production') return
-
-    // generate時にexpress立ててhttpでjson取得できるようにする
-    this.requireModule(['@nuxtjs/axios'])
-    this.nuxt.hook('build:done', (generator) => {
-      const app = express()
-      app.use(express.static(this.options.generate.dir))
-      const server = app.listen(process.env.PORT || 3000)
-
-      this.nuxt.hook('generate:done', () => {
-        server.close()
-      })
-    })
   })
 }
