@@ -6,6 +6,12 @@ export default {
     base:
       process.env.NODE_ENV === 'development' ? '/' : '/nuxt-build-rss-sample/'
   },
+  env: {
+    api: (process.env.API_URL =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'https://tomitaaaaa.github.io/nuxt-build-rss-sample')
+  },
   /*
    ** Headers of the page
    */
@@ -54,7 +60,7 @@ export default {
             name: 'mag01',
             url: 'https://note.com/tomtoma/m/m923ed96565c2/rss'
           },
-          { name: 'mag02', url: 'https://note.com/narumi/m/m7bdaa6c5a46e/rss' }
+          { name: 'mag02', url: 'https://note.com/notemag/m/md68de622a450/rss' }
         ]
       }
     ]
