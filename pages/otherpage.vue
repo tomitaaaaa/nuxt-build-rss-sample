@@ -3,7 +3,7 @@
     <div>
       <h1 class="ttl">note rss post list</h1>
       <div class="page_nav">
-        <nuxt-link to="/otherpage">mag01</nuxt-link>
+        <nuxt-link to="/">mag02</nuxt-link>
       </div>
       <ul class="card_list">
         <postCard
@@ -27,7 +27,7 @@ export default {
     try {
       const feed = await app.$axios.get('/_nuxt/articles/note_rss.json')
       const posts = feed.data.find((d) => {
-        return d.name === 'mag01'
+        return d.name === 'mag02'
       })
       return { posts: posts.posts[0].item }
     } catch (err) {
