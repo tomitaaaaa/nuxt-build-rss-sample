@@ -1,6 +1,5 @@
 import axios from 'axios'
 import x2j from 'xml2js'
-import express from 'express'
 
 module.exports = function rssToJson(moduleOptions) {
   this.nuxt.hook('build:before', async (builder) => {
