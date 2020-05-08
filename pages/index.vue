@@ -3,7 +3,7 @@
     <div>
       <h1 class="ttl">note rss post list</h1>
       <div class="page_nav">
-        <nuxt-link to="/otherpage">mag01</nuxt-link>
+        <nuxt-link to="/otherpage">go to mag02</nuxt-link>
       </div>
       <ul class="card_list">
         <postCard
