@@ -50,7 +50,7 @@ module.exports = function rssToJson(moduleOptions) {
       ...[
         {
           rel: 'prefetch',
-          href: `${this.options.build.publicPath}articles/note_rss.json`
+          href: `${process.env.API_URL}${this.options.build.publicPath}articles/note_rss.json`
         }
       ]
     ]
