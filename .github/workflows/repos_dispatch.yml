@@ -1,8 +1,9 @@
 
 name: repository_dispatch_sample
 
-on: repository_dispatch
-  types: [sample_trigger]
+on:
+  repository_dispatch:
+    types: [sample_trigger]
 
 jobs:
   build:
