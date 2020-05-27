@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <h1 class="ttl">note rss post list</h1>
+      <h1 class="ttl">note rss post list oyoyo</h1>
       <div class="page_nav">
         <nuxt-link to="/otherpage">mag01</nuxt-link>
       </div>
