@@ -17,7 +17,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: tomitaaaaa/nuxt-build-rss-sample
-          token: ${{ secrets.GitHub_PAT }}
           path: dispatches
       - name: nodejs ${{ matrix.node-version }}
         uses: actions/setup-node@v1
