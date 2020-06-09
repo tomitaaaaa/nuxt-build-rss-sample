@@ -5,7 +5,7 @@ name: build nuxt
 
 on:
   push:
-    branches: [ master ]
+    branches: [ build-test ]
 
 jobs:
   build:
@@ -36,7 +36,7 @@ jobs:
           ${{ runner.os }}-yarn-${{ env.cache-name }}-
           ${{ runner.os }}-yarn-
           ${{ runner.os }}-
-    
+
     - name: Install Dependencies
       run: yarn install
 
