@@ -2,6 +2,7 @@
   <div class="container">
     <div>
       <h1 class="ttl">note rss post list</h1>
+      <p>from dispatch</p>
       <div class="page_nav">
         <nuxt-link to="/otherpage">go to mag02</nuxt-link>
       </div>
